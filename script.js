@@ -20,7 +20,7 @@ const playerO = {
   player: "O"
 }
 
-
+// used for testing purposes.
 button.addEventListener('click', screenController = () => {
   for (cell in gameboardObject.gameboard) {
     let index = Math.floor(Math.random() * choice.length);
@@ -33,12 +33,14 @@ button.addEventListener('click', screenController = () => {
   boardCounter = 0
 })
 
+
+// function controls the player's actions. For now, set to fill the board with a maximum of 5 occurrences for the player, where he is assumed to use X.
 play.addEventListener('click', playerGame = () => {
-  boardCounter = 5
+  let boardX = 5
   for (cell in gameboardObject.gameboard) {
-    let index = Math.floor(Math.random() * choice.length);
-    cell = choice[index];
-    cellList.push(cell);
-    board[Math.floor(Math.random()* boardCounter)].innerHTML = `${playerX.player}`;
+    while (boardCounter <= boardX) {
+      board[Math.floor(Math.random()*8)].innerHTML = `${playerX.player}`;
+      boardCounter++;
+    }
   }
 })
