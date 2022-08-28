@@ -34,11 +34,11 @@ button.addEventListener('click', screenController = () => {
 })
 
 play.addEventListener('click', playerGame = () => {
+  boardCounter = 5
   for (cell in gameboardObject.gameboard) {
     let index = Math.floor(Math.random() * choice.length);
     cell = choice[index];
     cellList.push(cell);
-    board[boardCounter].innerHTML = `${playerX.player}`;
-    boardCounter += 1;
+    board[Math.floor(Math.random()* boardCounter)].innerHTML = `${playerX.player}`;
   }
 })
