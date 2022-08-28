@@ -10,5 +10,12 @@ body {
     display: grid;
     grid-template-columns: 50px 50px 50px;
     grid-template-rows: 50px 50px 50px;
-    top: 5%;
+}
+
+.gameboard-container > .cell {
+    border: 0.5px solid darkgray;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
