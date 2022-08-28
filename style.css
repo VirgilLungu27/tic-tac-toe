@@ -4,6 +4,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .gameboard-container {
@@ -19,4 +20,18 @@ body {
     justify-content: center;
     align-items: center;
     background-color: rgba(255, 228, 196, 0.388);
+}
+
+.gameboard-container > .cell:hover {
+    cursor: pointer;
+}
+
+button {
+    margin-top: 15px;
+    border-radius: 6px;
+    font-family: inherit;
+    width: 120px;
+    height: 40px;
+    background-color: rgba(255, 228, 196, 0.888);
+    font-size: 17px;
 }
