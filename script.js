@@ -9,6 +9,15 @@ const gameboardObject = {
     gameboard: ["X", "O", "X", "O", "X", "O", "X", "O", "X"]
 };
 
+const playerX = {
+  player: "X"
+}
+
+const playerO = {
+  player: "O"
+}
+
+
 button.addEventListener('click', screenController = () => {
   for (cell in gameboardObject.gameboard) {
     let index = Math.floor(Math.random() * choice.length);
@@ -21,18 +30,3 @@ button.addEventListener('click', screenController = () => {
   } 
 })
 
-const playerGame = () => {
-    while (boardCounter < cellList.length) {
-        if (board[boardCounter].innerHTML == "") {
-           board[boardCounter].innerHTML = "X";
-           boardCounter += 1;
-        }
-        else {
-           console.log("Already occupied.")
-        }
-    }
-};
-
-const opponentGame = () => {
-    return "O";
-}
