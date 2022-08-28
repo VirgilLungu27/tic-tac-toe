@@ -1,5 +1,8 @@
+const gameboard = document.querySelector('gameboard-container')
+const board = document.getElementsByClassName('cell')
+
 const gameboardObject = {
-    gameboard: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    gameboard: ["X", "O", "X", "O", "X", "O", "X", "O", "X"]
 };
 
 const player = () => {
