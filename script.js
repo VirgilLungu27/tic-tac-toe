@@ -25,10 +25,13 @@ const playerO = {
 
 const getXYPosition = () => {
   screen.addEventListener('click', screenXY = (e) => {
+    let choice = []
     let x, y;
     y = e.clientY;
     x = e.clientX;
     console.log(x, y)
+    choice.push(x, y)
+    clicked.push(choice)
   })
 }
 
