@@ -1,4 +1,5 @@
-const gameboard = document.querySelector('gameboard-container')
+const screen = document.querySelector('body');
+
 const board = document.getElementsByClassName('cell')
 const choice = ["X", "O"]
 const cellList = []
@@ -6,10 +7,11 @@ const button = document.getElementById('test')
 
 const play = document.getElementById('play')
 
-let boardCounter = 0
+clicked = []
+first_row = []
 
 const gameboardObject = {
-    gameboard: ["X", "O", "X", "O", "X", "O", "X", "O", "X"]
+    gameboard: [0, 1, 2, 3, 4, 5, 6, 7, 8]
 };
 
 const playerX = {
@@ -20,32 +22,40 @@ const playerO = {
   player: "O"
 }
 
+
+const getXYPosition = () => {
+  screen.addEventListener('click', screenXY = (e) => {
+    let x, y;
+    y = e.clientY;
+    x = e.clientX;
+    console.log(x, y)
+  })
+}
+
+
 const boardGame = () => {
-  while (boardCounter < 9)  {
-    if (boardCounter % 2 == 0) {
-      board[boardCounter].addEventListener('click', playerChoice = () => {
-        board[boardCounter].innerHTML = `${playerX.player}`;
-     })
+  for (cell in gameboardObject.gameboard)  {
+      board[cell].addEventListener('click', playerChoice = (e) => {
+        let rect = e.target.getBoundingClientRect()
+        clicked.push(rect)
+        board[clicked.length - 1].innerHTML = `${playerX.player}`
+      })
     }
-    else {
-      board[boardCounter].addEventListener('click', opponentChoice = () => {
-        board[boardCounter].innerHTML = `${playerO.player}`;
-     })
-    }
-    boardCounter++; 
-  }
+
 }
 
 // function controls the player's actions. For now, set to fill the board with a maximum of 5 occurrences for the player, where he is assumed to use X.
-play.addEventListener('click', playerGame = () => {
-  boardCounter = 0
+/* play.addEventListener('click', playerGame = () => {
+  gameboardObject.gameboard = 0
   let boardX = 5
   for (cell in gameboardObject.gameboard) {
-    while (boardCounter <= boardX) {
+    while (gameboardObject.gameboard <= boardX) {
       board[Math.floor(Math.random()*8)].innerHTML = `${playerX.player}`;
-      boardCounter++;
+      gameboardObject.gameboard++;
     }
   }
 })
+*/
 
-boardGame()
+getXYPosition()
+// boardGame()
