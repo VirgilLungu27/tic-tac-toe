@@ -31,6 +31,7 @@ const boardGame = () => {
     choiceXY.push(x,y)
     clicked.push(choiceXY)
     console.log(clicked)
+    // allow opponents to make moves
     if (clicked.length % 2 == 1) {
       if (clicked[clicked.length - 1][1] < 58) {
         if (clicked[clicked.length -1][0] < 548) {
@@ -101,7 +102,14 @@ const boardGame = () => {
             }
           }
       }
-    })
-  }
+    for (let i = 0; i <= 6; i++) {
+      if(board[i].innerHTML !== "") {
+       if ((board[i].innerHTML === board[i+1].innerHTML) && (board[i].innerHTML === board[i+2].innerHTML) && ((i+3) % 3 == 0)) {
+          alert("Game over.")
+        }
+      }
+    }  
+  })
+}
   
   boardGame()
