@@ -8,7 +8,6 @@ const button = document.getElementById('test')
 const play = document.getElementById('play')
 
 clicked = []
-first_row = []
 
 const gameboardObject = {
     gameboard: [0, 1, 2, 3, 4, 5, 6, 7, 8]
@@ -25,27 +24,30 @@ const playerO = {
 
 const getXYPosition = () => {
   screen.addEventListener('click', screenXY = (e) => {
-    let choice = []
     let x, y;
+    let choiceXY = []
     y = e.clientY;
     x = e.clientX;
-    console.log(x, y)
-    choice.push(x, y)
-    clicked.push(choice)
+    choiceXY.push(x,y)
+    clicked.push(choiceXY)
+    console.log(clicked)
   })
 }
 
 
 const boardGame = () => {
-  for (cell in gameboardObject.gameboard)  {
-      board[cell].addEventListener('click', playerChoice = (e) => {
-        let rect = e.target.getBoundingClientRect()
-        clicked.push(rect)
-        board[clicked.length - 1].innerHTML = `${playerX.player}`
-      })
+  if (clicked[clicked.length - 1][1] < 58) {
+    if (clicked[clicked.length -1][0] < 548) {
+      board[0].innerHTML = `${playerX.player}`
+      }
+    else if(clicked[clicked.length -1][0] >= 548 && clicked[clicked.length-1][0] < 598) {
+      board[1].innerHTML = `${playerX.player}`      
+      }
+    else {
+      board[2].innerHTML = `${playerX.player}`
     }
-
-}
+    }
+  }
 
 // function controls the player's actions. For now, set to fill the board with a maximum of 5 occurrences for the player, where he is assumed to use X.
 /* play.addEventListener('click', playerGame = () => {
@@ -60,5 +62,7 @@ const boardGame = () => {
 })
 */
 
-getXYPosition()
-// boardGame()
+while (clicked.length < 5) {
+  getXYPosition()
+  boardGame()
+}
