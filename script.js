@@ -22,7 +22,7 @@ const playerO = {
 }
 
 
-const getXYPosition = () => {
+const boardGame = () => {
   screen.addEventListener('click', screenXY = (e) => {
     let x, y;
     let choiceXY = []
@@ -31,60 +31,41 @@ const getXYPosition = () => {
     choiceXY.push(x,y)
     clicked.push(choiceXY)
     console.log(clicked)
-  })
-}
-
-
-const boardGame = () => {
-  if (clicked[clicked.length - 1][1] < 58) {
-    if (clicked[clicked.length -1][0] < 548) {
-      board[0].innerHTML = `${playerX.player}`
-      }
-    else if(clicked[clicked.length -1][0] >= 548 && clicked[clicked.length-1][0] < 598) {
-      board[1].innerHTML = `${playerX.player}`      
-      }
-    else {
-      board[2].innerHTML = `${playerX.player}`
-    }
-    }
-  else if (clicked[clicked.length - 1][1] > 58 && clicked[clicked.length-1][1] < 108) {
+    if (clicked[clicked.length - 1][1] < 58) {
       if (clicked[clicked.length -1][0] < 548) {
-        board[3].innerHTML = `${playerX.player}`
+        board[0].innerHTML = `${playerX.player}`
         }
       else if(clicked[clicked.length -1][0] >= 548 && clicked[clicked.length-1][0] < 598) {
-        board[4].innerHTML = `${playerX.player}`      
+        board[1].innerHTML = `${playerX.player}`      
         }
       else {
-        board[5].innerHTML = `${playerX.player}`
+        board[2].innerHTML = `${playerX.player}`
       }
       }
-   else {
+    else if (clicked[clicked.length - 1][1] > 58 && clicked[clicked.length-1][1] < 108) {
         if (clicked[clicked.length -1][0] < 548) {
-          board[6].innerHTML = `${playerX.player}`
+          board[3].innerHTML = `${playerX.player}`
           }
         else if(clicked[clicked.length -1][0] >= 548 && clicked[clicked.length-1][0] < 598) {
-          board[7].innerHTML = `${playerX.player}`      
+          board[4].innerHTML = `${playerX.player}`      
           }
         else {
-          board[8].innerHTML = `${playerX.player}`
+          board[5].innerHTML = `${playerX.player}`
         }
-      }
+        }
+    else {
+          if (clicked[clicked.length -1][0] < 548) {
+            board[6].innerHTML = `${playerX.player}`
+            }
+          else if(clicked[clicked.length -1][0] >= 548 && clicked[clicked.length-1][0] < 598) {
+            board[7].innerHTML = `${playerX.player}`      
+            }
+          else {
+            board[8].innerHTML = `${playerX.player}`
+          }
+        }
+    })
   }
+  
 
-// function controls the player's actions. For now, set to fill the board with a maximum of 5 occurrences for the player, where he is assumed to use X.
-/* play.addEventListener('click', playerGame = () => {
-  gameboardObject.gameboard = 0
-  let boardX = 5
-  for (cell in gameboardObject.gameboard) {
-    while (gameboardObject.gameboard <= boardX) {
-      board[Math.floor(Math.random()*8)].innerHTML = `${playerX.player}`;
-      gameboardObject.gameboard++;
-    }
-  }
-})
-*/
-
-while (clicked.length < 5) {
-  getXYPosition()
-  boardGame()
-}
+boardGame()
