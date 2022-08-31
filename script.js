@@ -47,6 +47,28 @@ const boardGame = () => {
       board[2].innerHTML = `${playerX.player}`
     }
     }
+  else if (clicked[clicked.length - 1][1] > 58 && clicked[clicked.length-1][1] < 108) {
+      if (clicked[clicked.length -1][0] < 548) {
+        board[3].innerHTML = `${playerX.player}`
+        }
+      else if(clicked[clicked.length -1][0] >= 548 && clicked[clicked.length-1][0] < 598) {
+        board[4].innerHTML = `${playerX.player}`      
+        }
+      else {
+        board[5].innerHTML = `${playerX.player}`
+      }
+      }
+   else {
+        if (clicked[clicked.length -1][0] < 548) {
+          board[6].innerHTML = `${playerX.player}`
+          }
+        else if(clicked[clicked.length -1][0] >= 548 && clicked[clicked.length-1][0] < 598) {
+          board[7].innerHTML = `${playerX.player}`      
+          }
+        else {
+          board[8].innerHTML = `${playerX.player}`
+        }
+      }
   }
 
 // function controls the player's actions. For now, set to fill the board with a maximum of 5 occurrences for the player, where he is assumed to use X.
