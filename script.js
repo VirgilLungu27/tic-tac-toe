@@ -31,7 +31,7 @@ const boardGame = () => {
     choiceXY.push(x,y)
     clicked.push(choiceXY)
     console.log(clicked)
-    if (clicked.length <= 5) {
+    if (clicked.length % 2 == 1) {
       if (clicked[clicked.length - 1][1] < 58) {
         if (clicked[clicked.length -1][0] < 548) {
           board[0].innerHTML = `${playerX.player}`
@@ -66,6 +66,41 @@ const boardGame = () => {
             }
           }
         }
+    else {
+      if (clicked[clicked.length - 1][1] < 58) {
+        if (clicked[clicked.length -1][0] < 548) {
+          board[0].innerHTML = `${playerO.player}`
+          }
+        else if(clicked[clicked.length -1][0] >= 548 && clicked[clicked.length-1][0] < 598) {
+          board[1].innerHTML = `${playerO.player}`      
+          }
+        else {
+          board[2].innerHTML = `${playerO.player}`
+          }
+        }
+      else if (clicked[clicked.length - 1][1] > 58 && clicked[clicked.length-1][1] < 108) {
+        if (clicked[clicked.length -1][0] < 548) {
+            board[3].innerHTML = `${playerO.player}`
+          }
+        else if(clicked[clicked.length -1][0] >= 548 && clicked[clicked.length-1][0] < 598) {
+            board[4].innerHTML = `${playerO.player}`      
+            }
+          else {
+            board[5].innerHTML = `${playerO.player}`
+          }
+          }
+      else {
+            if (clicked[clicked.length -1][0] < 548) {
+              board[6].innerHTML = `${playerO.player}`
+              }
+            else if(clicked[clicked.length -1][0] >= 548 && clicked[clicked.length-1][0] < 598) {
+              board[7].innerHTML = `${playerO.player}`      
+              }
+            else {
+              board[8].innerHTML = `${playerO.player}`
+            }
+          }
+      }
     })
   }
   
