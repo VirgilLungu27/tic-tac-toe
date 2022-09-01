@@ -1,9 +1,6 @@
 const screen = document.querySelector('body');
 const container = document.getElementById('gameboard-container')
 const board = document.getElementsByClassName('cell')
-
-const button = document.getElementById('test')
-
 const play = document.getElementById('play')
 
 const playerX = {
@@ -14,8 +11,7 @@ const playerO = {
   player: "O"
 }
 
-
-const boardGame = () => {
+play.addEventListener('click', boardGame = () => {
   clicked = [0, 1, 2, 3, 4, 5, 6, 7, 8]
   container.addEventListener('click', screenXY = (e) => {
     for (turn in clicked) {  
@@ -29,6 +25,4 @@ const boardGame = () => {
       }
       clicked.pop()
   })
-} 
-  
-boardGame()
+})
