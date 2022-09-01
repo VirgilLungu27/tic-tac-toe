@@ -14,12 +14,6 @@ const gameboardObject = {
     gameboard: [0, 1, 2, 3, 4, 5, 6, 7, 8]
 };
 
-const gameboardApplied = () => {
-    for (cell in gameboardObject.gameboard) {
-      gameboardObject.gameboard[cell] = board[cell]
-    }
-}
-
 
 const playerX = {
   player: "X"
@@ -33,11 +27,11 @@ const playerO = {
 const boardGame = () => {
   container.addEventListener('click', screenXY = (e) => {
     for (cell in gameboardObject.gameboard) {  
+        gameboardObject.gameboard[cell] = board[cell]
         e.target = board[cell]
         e.target.innerHTML = `${playerX.player}`
     }
   })
 } 
   
-gameboardApplied()
 boardGame()
