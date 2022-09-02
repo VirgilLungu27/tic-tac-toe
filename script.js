@@ -16,11 +16,13 @@ const playerO = {
 play.addEventListener('click', boardGame = () => {
   clicked = [0, 1, 2, 3, 4, 5, 6, 7, 8]
   const left = document.createElement("div")
-
+  const right = document.createElement("div")
   const leftPlayer = document.getElementById("left")
-  left.style.left = "40%"
+  const rightPlayer = document.getElementById("right")
   left.innerHTML = `${leftPlayer.value}`
+  right.innerHTML = `${rightPlayer.value}`
   screen.appendChild(left);
+  screen.appendChild(right)
   container.addEventListener('click', screenXY = (e) => {
     for (turn in clicked) {  
         e.target = board[turn]
