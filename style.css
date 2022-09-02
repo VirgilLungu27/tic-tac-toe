@@ -38,6 +38,14 @@ input:hover {
     background-color: aliceblue;
 }
 
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
 button {
     margin-top: 15px;
     border-radius: 6px;
