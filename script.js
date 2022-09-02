@@ -2,6 +2,7 @@ const screen = document.querySelector('body');
 const container = document.getElementById('gameboard-container')
 const board = document.getElementsByClassName('cell')
 const play = document.getElementById('play')
+const reset = document.getElementById('reset')
 
 const playerX = {
   player: "X"
@@ -23,6 +24,11 @@ play.addEventListener('click', boardGame = () => {
           e.target.innerHTML = `${playerO.player}`;
         }
       }
-      clicked.pop()
+      clicked.shift()
   })
+  screen.removeChild(play);
+})
+
+reset.addEventListener('click', resetGame = () => {
+  window.location.href = "./index.html"
 })
