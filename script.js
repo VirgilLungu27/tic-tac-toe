@@ -38,7 +38,17 @@ play.addEventListener('click', boardGame = () => {
   form.removeChild(play);
 })
 
+let boardArray = Array.from(document.getElementsByClassName('cell'));
+
+const endGame = () => {
+  if ((boardArray[0] == boardArray[1]) && (boardArray[0] == boardArray[2]) && (boardArray[0] !== "")) {
+    alert("Game over.")
+    window.location.href = "./index.html"
+  }
+}
 
 reset.addEventListener('click', resetGame = () => {
   window.location.href = "./index.html"
 })
+
+endGame()
