@@ -19,9 +19,11 @@ const playerO = {
 const endGame = () => {
   if (finalArray.length == 9) {
     for (let i = 0; i < finalArray.length; i++) {
-      if ((finalArray[i] == finalArray[i+1]) && (finalArray[i+1] == finalArray[i+2]) && (finalArray[i] !== "") && ((i+3) % 3 == 0)) {
-        alert("Game over.")
-        window.location.href = "./index.html"
+      if (finalArray[i] !== "") {
+        if (((finalArray[i] == finalArray[i+1]) && (finalArray[i+1] == finalArray[i+2]) && ((i+3) % 3 == 0)) || ((finalArray[i] == finalArray[i+3]) && (finalArray[i+3] == finalArray[i+6]))) {
+          alert("Game over.")
+          window.location.href = "./index.html"
+        }
       }
     }
   }
