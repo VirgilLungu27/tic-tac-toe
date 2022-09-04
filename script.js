@@ -5,12 +5,8 @@ const play = document.getElementById('play')
 const reset = document.getElementById('reset')
 const form = document.getElementById('form')
 
-
 let boardArray = Array.from(document.querySelectorAll('.cell'));
-finalArray = []
-for (cell in boardArray) {
-  finalArray.push(boardArray[cell].innerHTML)
-}
+let finalArray = []
 
 const playerX = {
   player: "X"
@@ -31,19 +27,23 @@ play.addEventListener('click', boardGame = () => {
   screen.appendChild(left);
   screen.appendChild(right)
   container.addEventListener('click', screenXY = (e) => {
-    for (turn in clicked) {  
-        e.target = board[turn]
-        if (turn % 2 == 0) {
-          e.target.innerHTML = `${playerX.player}`;
+      finalArray = []
+      for (turn in clicked) {  
+          e.target = board[turn]
+          if (turn % 2 == 0) {
+            e.target.innerHTML = `${playerX.player}`;
+          }
+          else if (turn % 2 == 1) {
+            e.target.innerHTML = `${playerO.player}`;
+          }
         }
-        else if (turn % 2 == 1) {
-          e.target.innerHTML = `${playerO.player}`;
+        clicked.shift()
+        for (cell in boardArray) {
+          finalArray.push((boardArray[cell].textContent))
         }
-      }
-      clicked.shift()
-  })
-  form.removeChild(play);
-})
+      })
+      form.removeChild(play);
+    })
 
 
 function endGame() {
