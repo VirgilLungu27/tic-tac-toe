@@ -34,6 +34,10 @@ const endGame = () => {
          }
          window.location.href = "./index.html" 
         }
+        else if (clicked.length == 0) {
+          alert("Game over. It's a tie.")
+          window.location.href = "./index.html" 
+        }
       }
     }
   }
